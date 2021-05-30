@@ -29,7 +29,7 @@ function App() {
 
   async function isAuth(){
     try {
-        const response = await fetch("http://localhost:1000/auth/is-verify",{
+        const response = await fetch("https://abstracttodoappclient.herokuapp.com//auth/is-verify",{
           method: "GET",
           headers: {token: localStorage.token}
 

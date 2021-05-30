@@ -14,7 +14,7 @@ const InputTodo = ({uid}) => {
         try {
             console.log(uid);
             const body = {uid, todo_name, description, date};
-            await fetch("http://localhost:1000/todos",{
+            await fetch("https://abstracttodoappclient.herokuapp.com/todos",{
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)  

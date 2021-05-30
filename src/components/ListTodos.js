@@ -17,7 +17,7 @@ const ListTodos = () => {
     const deleteTodo = async(id) => {
 
         try {
-            const deleteTodo = await fetch(`http://localhost:1000/todos/${id}`,{
+            const deleteTodo = await fetch(`https://abstracttodoappclient.herokuapp.com/todos/${id}`,{
                 method: "DELETE"
             })
             setTodos(todos.filter(todo => todo.todo_id !== id))
@@ -31,7 +31,7 @@ const ListTodos = () => {
     const getTodos = async() => {
         try {
             const id = await getId()
-            const response = await fetch("http://localhost:1000/todos")
+            const response = await fetch("https://abstracttodoappclient.herokuapp.com/todos")
             const jsonData = await response.json()
 
             setTodos(jsonData.filter(todo => todo.user_id == id || todo.user_id == null));
@@ -46,7 +46,7 @@ const ListTodos = () => {
     async function getId(){
         try {
             
-            const response = await fetch('http://localhost:1000/dashboard',{
+            const response = await fetch('https://abstracttodoappclient.herokuapp.com/dashboard',{
                 method: "GET",
                 headers: {token: localStorage.token}
             })

@@ -28,7 +28,7 @@ const Register = ({setAuth}) => {
         e.preventDefault();
         try {
             const body = {name, email, password}
-            const response = await fetch('http://localhost:1000/auth/register',{
+            const response = await fetch('https://abstracttodoappclient.herokuapp.com/auth/register',{
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
