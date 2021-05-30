@@ -73,8 +73,8 @@ const EditTodo = ({todo}) => {
             <select className="form-control mr-2"
                     value={status}
                     onChange={e => setStatus(e.target.value)}>
-                <option>Incomplete</option>
-                <option>Completed</option>
+                <option>Ongoing</option>
+                <option>Done</option>
                 </select>
                 </div>
 
