@@ -28,7 +28,8 @@ const EditTodo = ({todo}) => {
         e.preventDefault();
         try {
             const body = {todo_name, description, date, status};
-            const response = await fetch(`https://abstracttodoappserver.herokuapp.com/${todo.todo_id}`,{
+             const id = await getId()
+            const response = await fetch(`https://abstracttodoappserver.herokuapp.com/${id}`,{
 
                 method: "PUT",
                 headers: {"Content-Type":  "application/json"},
@@ -39,6 +40,25 @@ const EditTodo = ({todo}) => {
         } catch (err) {
             console.error(err.message);
         }
+    }
+    
+    function getid(){
+      try {
+            
+        const response = await fetch('https://abstracttodoappserver.herokuapp.com/dashboard',{
+            method: "GET",
+            headers: {token: localStorage.token}
+        })
+
+        const parseResponse = await response.json();
+
+
+        return parseResponse.user_id
+
+    } catch (err) {
+        console.error(err.message);
+    }
+
     }
 
     return(
